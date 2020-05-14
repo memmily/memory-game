@@ -1,0 +1,16 @@
+.game-card {
+    /* background-color: #000000; */
+    width: 104px;
+    height: 160px;
+    margin: 100px auto;
+}
+
+.front {
+    background-color: #CDB5CD;
+}
+
+.back {
+    background-color: #000000;
+
+}
+
