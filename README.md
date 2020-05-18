@@ -1,2 +1,2 @@
 # memory-game
-Memory game using Bootstrap and Vue.js
+Memory game using Bootstrap and Vanilla JavaScript.
