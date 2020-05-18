@@ -15,8 +15,8 @@
     transform-style: preserve-3d;
 }
 
-/* Flip on mouse hover */
-.game-card:hover .game-card-inner {
+/* Flip on mouse click */
+.game-card.active .game-card-inner {
     transform: rotateY(180deg);
   }
 
@@ -29,12 +29,10 @@
     backface-visibility: hidden;
   }
 
-
 .front {
     background-color: #CDB5CD;
     color: #0000;
   }
-
 
   .back {
     background-color: #000000;
