@@ -1,32 +1,15 @@
-
-
 //card turns front face with click
 
-//card turns back face when other card is clicked
+let innerCards = document.querySelectorAll(".game-card");
 
-const innerCards = document.querySelector(".game-card");
-const frontFace = document.getElementsByClassName("front");
-const backFace = document.getElementsByClassName("back");
-
-
-
-innerCards.addEventListener("click", flipCard);
-
-function flipCard() {
-  let flippedCard;
-  if(backFace) {
-    flippedCard = frontFace;
-  }
-  return flippedCard
+function flipCard(card) {
+  card.classList.toggle("active");
 }
   
+innerCards.forEach(function (currentCard){
+  currentCard.addEventListener('click', function(event) {
+    flipCard(event.currentTarget);
+  });
+});
 
-
-
-
-
-
-
-
-
-
+//card turns back face when other card is clicked
