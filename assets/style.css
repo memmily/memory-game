@@ -31,11 +31,11 @@
 
 .front {
     background-color: #CDB5CD;
-    color: #0000;
+    color: #ffff;
   }
 
   .back {
     background-color: #000000;
-    color: white;
+    color: #ffff;
     transform: rotateY(180deg);
   }

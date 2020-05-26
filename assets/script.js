@@ -12,25 +12,54 @@ function flipCard(card) {
   card.classList.toggle("active");
 }
 
-function setClickedCard(card) {
+function setFlipStates(card) {
+
+  if(cardOne===card || cardTwo===card) {
+    return
+  }
+  
   if(cardOne===null) {
     cardOne = card;
+    flipCard(cardOne);
+    console.log({cardOne});
   } else if(cardTwo===null) {
     cardTwo = card;
+    flipCard(cardTwo);
+    console.log({cardTwo});
   } else {
     flipCard(cardOne);
     flipCard(cardTwo);
     cardOne = card;
+    flipCard(cardOne);
     cardTwo = null;
   }
 }
 
+function matchPartner() {
+  if(cardOne===null || cardTwo===null) {
+    return
+  }
+
+  if(cardOne.dataset.pair === cardTwo.dataset.pair) {
+    cardOne.innerHTML = "";
+    cardTwo.innerHTML = "";
+  }
+
+}
+
 innerCards.forEach(function (currentCard){
   currentCard.addEventListener('click', function(event) {
-    card = event.currentTarget;
-    flipCard(card);
+    const card = event.currentTarget;
+    console.log(card);
 
-    setClickedCard(card);
+    setFlipStates(card);
+
+    matchPartner();
+
+    // if(cardOne === cardTwo) {
+     
+    //   !flipCard(card);
+    // }
 
     //if you click the same card already clicked, do nothing
 
