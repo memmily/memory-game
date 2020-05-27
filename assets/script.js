@@ -40,9 +40,15 @@ function matchPartner() {
   }
 
   if(cardOne.dataset.pair === cardTwo.dataset.pair) {
+
+    setTimeout(function(){
+      cardOne.remove();
+      cardTwo.remove();
+      }
+    , 1500);
     
-    cardOne.remove();
-    cardTwo.remove();
+    // cardOne.remove();
+    // cardTwo.remove();
     //https://developer.mozilla.org/pt-BR/docs/Web/API/ChildNode/remove
     // cardOne.innerHTML = "";
     // cardTwo.innerHTML = "";
