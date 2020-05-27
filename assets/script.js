@@ -17,7 +17,6 @@ function setFlipStates(card) {
   if(cardOne===card || cardTwo===card) {
     return
   }
-  
   if(cardOne===null) {
     cardOne = card;
     flipCard(cardOne);
@@ -41,8 +40,12 @@ function matchPartner() {
   }
 
   if(cardOne.dataset.pair === cardTwo.dataset.pair) {
-    cardOne.innerHTML = "";
-    cardTwo.innerHTML = "";
+    
+    cardOne.remove();
+    cardTwo.remove();
+    //https://developer.mozilla.org/pt-BR/docs/Web/API/ChildNode/remove
+    // cardOne.innerHTML = "";
+    // cardTwo.innerHTML = "";
   }
 
 }
@@ -50,11 +53,15 @@ function matchPartner() {
 innerCards.forEach(function (currentCard){
   currentCard.addEventListener('click', function(event) {
     const card = event.currentTarget;
-    console.log(card);
 
     setFlipStates(card);
-
+    
     matchPartner();
+
+  });
+});
+
+//SNIPPETS TO TAKE A LOOK AGAIN
 
     // if(cardOne === cardTwo) {
      
@@ -68,8 +75,6 @@ innerCards.forEach(function (currentCard){
  //Turn back cards
     // turnBack(document.querySelectorAll(".active"));
 
-  });
-});
     
 function turnBack(activeCards) {
     if(activeCards.length>=2) {
@@ -82,6 +87,10 @@ function turnBack(activeCards) {
 }
 
 
+
+
+
+//TODO:
 
 //Game states
 
@@ -101,12 +110,4 @@ function turnBack(activeCards) {
 
 // o jogo acaba quando ...?
 
-
-//TODO:
-
-//Block when person tries to turn a third card
-
-//save currentcard
-
-//Study function bind, parameters and hoisting
 
