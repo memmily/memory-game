@@ -10,13 +10,22 @@ var timerId = null;
 
 function flipCard(card) {
   card.classList.toggle("active");
+
 }
 
 function setFlipStates(card) {
 
   if(cardOne===card || cardTwo===card) {
+    console.log("This card was already clicked");
     return
   }
+
+  if(card.classList.contains("matched")) {
+    console.log("This card was already matched");
+    return
+
+  }
+
   if(cardOne===null) {
     cardOne = card;
     flipCard(cardOne);
@@ -41,11 +50,20 @@ function matchPartner() {
 
   if(cardOne.dataset.pair === cardTwo.dataset.pair) {
 
-    setTimeout(function(){
-      cardOne.remove();
-      cardTwo.remove();
-      }
-    , 1500);
+      cardOne.style.opacity = 0.5;
+      cardTwo.style.opacity = 0.5;
+      cardOne.classList.add("matched");
+      cardTwo.classList.add("matched");
+      
+      cardOne = null;
+      cardTwo = null;
+  
+
+    // setTimeout(function(){
+    //   cardOne.remove();
+    //   cardTwo.remove();
+    //   }
+    // , 1500);
     
     // cardOne.remove();
     // cardTwo.remove();
