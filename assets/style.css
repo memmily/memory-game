@@ -1,8 +1,21 @@
+#container {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  
+}
+
+h1 {
+  margin-top: 100px;
+  text-align: center;
+}
+
 .game-card {
     width: 104px;
     height: 160px;
     margin: 100px auto;
     perspective: 1000px;
+    
 }
 
 /*Necessary on positioning sides*/
@@ -37,5 +50,7 @@
   .back {
     background-color: #000000;
     color: #ffff;
+    font-size: 80px;
+    padding-top: 16px;
     transform: rotateY(180deg);
   }
