@@ -1,5 +1,5 @@
 //create cards for game
-function printRepeatPrevious(x) {
+function createCards(x) {
   let cards = [];
   for(i=1; i<=x; i++) {
     let obj = new Object();
@@ -12,12 +12,28 @@ function printRepeatPrevious(x) {
       
     }
     
-  cards.push({obj});
+  cards.push(obj);
+
   }
   return cards
 }
 
-let cards = printRepeatPrevious(16);
+//Using The Fisher Yates Method to shuffle cards
+function shuffleCards(cards) {
+  var i, j, k;
+  for (i = cards.length -1; i > 0; i--) {
+    j = Math.floor(Math.random() * i)
+    k = cards[i]
+    cards[i] = cards[j]
+    cards[j] = k
+  }
+
+  return cards
+
+}
+
+let cards = createCards(16);
+cards = shuffleCards(cards);
 
 console.log(cards);
 
