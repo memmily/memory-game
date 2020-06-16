@@ -34,13 +34,24 @@ function shuffleCards(cards) {
 
 let cards = createCards(16);
 cards = shuffleCards(cards);
+cardsOnScreen(cards);
 
 console.log(cards);
 
-//create function to shuffle cards
+
 //create function to print cards on html(string template/interpolation)
-
-
-
+var divContent = document.getElementById("container");
+console.log(divContent);
+function cardsOnScreen(cards) {
+  for(var i=0; i<cards.length; i++) {
+    document.write(`<div id="${cards[i].id}">
+                      <div class="game-card-inner">
+                        <div class="back rounded">${cards[i].content}</div>
+                        <div class="front rounded"></div>
+                      </div>
+                    </div>`);
+    
+  }
+}
 
 
