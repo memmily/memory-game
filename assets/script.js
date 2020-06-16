@@ -40,18 +40,28 @@ console.log(cards);
 
 
 //create function to print cards on html(string template/interpolation)
-var divContent = document.getElementById("container");
-console.log(divContent);
+
+
 function cardsOnScreen(cards) {
+  var divContent = document.getElementById("container");
+  var str = "";
+  console.log(divContent);
   for(var i=0; i<cards.length; i++) {
-    document.write(`<div id="${cards[i].id}">
+
+    str+= `<div id="${cards[i].id}">
                       <div class="game-card-inner">
                         <div class="back rounded">${cards[i].content}</div>
                         <div class="front rounded"></div>
                       </div>
-                    </div>`);
-    
+                    </div>`;                  
   }
+
+  divContent.innerHTML = str;
 }
 
 
+// Using DOM -
+// var tag_id = document.getElementById('tagid');
+// var newNode = document.createElement('p');
+// newNode.appendChild(document.createTextNode('html string'));
+// node.appendChild(newNode);
