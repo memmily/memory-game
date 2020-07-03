@@ -48,7 +48,7 @@ function cardsOnScreen(cards) {
   console.log(divContent);
   for(var i=0; i<cards.length; i++) {
 
-    str+= `<div id="${cards[i].id}">
+    str+= `<div id="${cards[i].id}" class="game-card">
                       <div class="game-card-inner">
                         <div class="back rounded">${cards[i].content}</div>
                         <div class="front rounded"></div>
@@ -59,9 +59,3 @@ function cardsOnScreen(cards) {
   divContent.innerHTML = str;
 }
 
-
-// Using DOM -
-// var tag_id = document.getElementById('tagid');
-// var newNode = document.createElement('p');
-// newNode.appendChild(document.createTextNode('html string'));
-// node.appendChild(newNode);
