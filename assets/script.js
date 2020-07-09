@@ -45,7 +45,6 @@ console.log(cards);
 function cardsOnScreen(cards) {
   var divContent = document.getElementById("container");
   var str = "";
-  console.log(divContent);
   for(var i=0; i<cards.length; i++) {
 
     str+= `<div id="${cards[i].id}" class="game-card">
@@ -58,4 +57,32 @@ function cardsOnScreen(cards) {
 
   divContent.innerHTML = str;
 }
+
+// Toggling back and front classes on card
+let innerCards = document.querySelectorAll(".game-card");
+
+function flipCard(card) {
+  card.classList.toggle("active");
+}
+  
+innerCards.forEach(function (currentCard){
+  currentCard.addEventListener('click', function(event) {
+    flipCard(event.currentTarget);
+  });
+});
+
+//Add click event on the cards
+
+// var divContent = document.getElementById("container");
+// console.log(divContent);
+
+// divContent.addEventListener("click", function() {
+
+//   }
+// });
+
+  // for (var i=0; i<divContent.length, i++) {
+  //   if(divContent[i])
+
+  
 
