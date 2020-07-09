@@ -68,21 +68,37 @@ function flipCard(card) {
 innerCards.forEach(function (currentCard){
   currentCard.addEventListener('click', function(event) {
     flipCard(event.currentTarget);
+    flipModes(event.currentTarget, innerCards);
   });
 });
 
+//Create function to determine cards states and conditions for flipping
+
+function flipModes(currentCard, cards) {
+  for (var i=15; i>=0; i--) {
+        if(currentCard.content === cards[i].content 
+          && currentCard.id !== cards[i].id) {
+            flipCard(currentCard);
+            flipCard(cards[i]);
+        } 
+    
+      }
+}
 //Add click event on the cards
 
 // var divContent = document.getElementById("container");
-// console.log(divContent);
-
-// divContent.addEventListener("click", function() {
+// console.log(innerCards);
+// let currentCard;
+// console.log(currentCard);
+// cards.addEventListener("click", function() {
+//   currentCard = event.currentTarget;
+//   for (var i=15; i>=0; i--) {
+//     if(currentCard.id !== divContent[i].id 
+//       && currentCard.content === divContent[i].content) {
+//         flipCard(currentCard);
+//         flipCard(divContent[i]);
+//       } 
 
 //   }
 // });
-
-  // for (var i=0; i<divContent.length, i++) {
-  //   if(divContent[i])
-
-  
 
