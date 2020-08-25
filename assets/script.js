@@ -61,29 +61,55 @@ function cardsOnScreen(cards) {
 // Toggling back and front classes on card
 let innerCards = document.querySelectorAll(".game-card");
 
+var flippedCard = null;
+
 function flipCard(card) {
-  card.classList.toggle("active");
+  //if there is no card clicked
+  if(flippedCard === null){
+    flippedCard = card;
+    card.classList.toggle("active");
+    //if there is a card already clicked
+  } else if(flippedCard !== null) {
+    flippedCard = card;
+    card.classList.toggle("active");
+    setTimeout(function(){card.classList.toggle("active");}, 3000);
+  }
 }
   
 innerCards.forEach(function (currentCard){
   currentCard.addEventListener('click', function(event) {
     flipCard(event.currentTarget);
-    flipModes(event.currentTarget, innerCards);
+    // flipModes(event.currentTarget, innerCards);
   });
 });
 
 //Create function to determine cards states and conditions for flipping
 
-function flipModes(currentCard, cards) {
-  for (var i=15; i>=0; i--) {
-        if(currentCard.content === cards[i].content 
-          && currentCard.id !== cards[i].id) {
-            flipCard(currentCard);
-            flipCard(cards[i]);
-        } 
+// function flipModes(card) {
+//   for (var i=15; i>=0; i--) {
+//   if(card.classList.contains("active")) {
+//     flipCard(card)
+//   }
+// }
+
+
+
+
+
+// function flipModes(cards) {
+//   var currentCard;
+//   for (var i=15; i>=0; i--) {
+//         if(cards[i].classList === "active"){
+//           currentCard = cards[i];
+//         }
+//         else if (currentCard.content === cards[i].content 
+//           && currentCard.id !== cards[i].id) {
+//             flipCard(currentCard);
+//             flipCard(cards[i]);
+//         } 
     
-      }
-}
+//       }
+// }
 //Add click event on the cards
 
 // var divContent = document.getElementById("container");
@@ -102,3 +128,8 @@ function flipModes(currentCard, cards) {
 //   }
 // });
 
+// Bom dia! É isso aí. Acho que naquela condição ali dentro 
+// do for vc não verifica se a carta tá virada ou não.
+// Talvez se vc criar uma função pra colocar a carta 
+// pra cima 
+// e outra função pra colocar a carta pra baixo, talvez isso te ajude dentro do for.
