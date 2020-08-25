@@ -62,17 +62,20 @@ function cardsOnScreen(cards) {
 let innerCards = document.querySelectorAll(".game-card");
 
 var flippedCard = null;
+var secondCardFlipped;
+
 
 function flipCard(card) {
   //if there is no card clicked
   if(flippedCard === null){
     flippedCard = card;
-    card.classList.toggle("active");
+    flippedCard.classList.toggle("active");
     //if there is a card already clicked
   } else if(flippedCard !== null) {
-    flippedCard = card;
-    card.classList.toggle("active");
-    setTimeout(function(){card.classList.toggle("active");}, 3000);
+    secondCardFlipped = card;
+    secondCardFlipped.classList.toggle("active");
+    setTimeout(function(){flippedCard.classList.remove("active");}, 2000);
+    setTimeout(function(){secondCardFlipped.classList.remove("active");}, 2000);
   }
 }
   
