@@ -74,17 +74,25 @@ function flipCard(card) {
   } else if(secondCardFlipped === null) {
     secondCardFlipped = card;
     secondCardFlipped.classList.toggle("active");
-
-    setTimeout(
-      function(){
-        flippedCard.classList.remove("active");
-        secondCardFlipped.classList.remove("active"); 
-        //Back to the original
-        flippedCard = null;
-        secondCardFlipped = null;
-      }, 2000
-    );
-  }
+    
+    //if cards have different content:
+    if(flippedCard.textContent.trim() !== secondCardFlipped.textContent.trim()) {
+      setTimeout(
+        function(){
+          flippedCard.classList.remove("active");
+          secondCardFlipped.classList.remove("active"); 
+          //Back to the original
+          flippedCard = null;
+          secondCardFlipped = null;
+        }, 2000
+      );
+    } else {
+      //if cards have the same content
+      //Back to the original
+      flippedCard = null;
+      secondCardFlipped = null;
+    }
+  } 
 }
   
 innerCards.forEach(function (currentCard){
