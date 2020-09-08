@@ -32,12 +32,15 @@ function shuffleCards(cards) {
 
 }
 
-let cards = createCards(16);
-cards = shuffleCards(cards);
-cardsOnScreen(cards);
+function playGame() {
+  let cards = createCards(16);
+  cards = shuffleCards(cards);
+  cardsOnScreen(cards);
+  console.log(cards);
 
-console.log(cards);
+}
 
+playGame();
 
 //create function to print cards on html(string template/interpolation)
 
@@ -94,61 +97,29 @@ function flipCard(card) {
     }
   } 
 }
-  
-innerCards.forEach(function (currentCard){
-  currentCard.addEventListener('click', function(event) {
-    flipCard(event.currentTarget);
-    // flipModes(event.currentTarget, innerCards);
+
+const clickThisCard = function() {
+  innerCards.forEach(function (currentCard){
+    currentCard.addEventListener('click', function(event) {
+      flipCard(event.currentTarget);
+      console.log(event.currentTarget);
+    });
   });
+}
+
+clickThisCard();
+
+// Button to start a new game
+
+const newGame = document.querySelector(".new-game");
+newGame.addEventListener('click', function() {
+  location.reload();
 });
 
-//Create function to determine cards states and conditions for flipping
-
-// function flipModes(card) {
-//   for (var i=15; i>=0; i--) {
-//   if(card.classList.contains("active")) {
-//     flipCard(card)
-//   }
-// }
-
-
-
-
-
-// function flipModes(cards) {
-//   var currentCard;
-//   for (var i=15; i>=0; i--) {
-//         if(cards[i].classList === "active"){
-//           currentCard = cards[i];
-//         }
-//         else if (currentCard.content === cards[i].content 
-//           && currentCard.id !== cards[i].id) {
-//             flipCard(currentCard);
-//             flipCard(cards[i]);
-//         } 
-    
-//       }
-// }
-//Add click event on the cards
-
-// var divContent = document.getElementById("container");
-// console.log(innerCards);
-// let currentCard;
-// console.log(currentCard);
-// cards.addEventListener("click", function() {
-//   currentCard = event.currentTarget;
-//   for (var i=15; i>=0; i--) {
-//     if(currentCard.id !== divContent[i].id 
-//       && currentCard.content === divContent[i].content) {
-//         flipCard(currentCard);
-//         flipCard(divContent[i]);
-//       } 
-
-//   }
+// const newGame = document.querySelector(".new-game");
+// newGame.addEventListener('click', function() {
+//   playGame();
+//   clickThisCard();
 // });
 
-// Bom dia! É isso aí. Acho que naquela condição ali dentro 
-// do for vc não verifica se a carta tá virada ou não.
-// Talvez se vc criar uma função pra colocar a carta 
-// pra cima 
-// e outra função pra colocar a carta pra baixo, talvez isso te ajude dentro do for.
+
