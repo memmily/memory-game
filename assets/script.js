@@ -1,3 +1,7 @@
+var flippedCard = null;
+var secondCardFlipped = null;
+
+
 //create cards for game
 function createCards(x) {
   let cards = [];
@@ -37,6 +41,9 @@ function playGame() {
   cards = shuffleCards(cards);
   cardsOnScreen(cards);
   console.log(cards);
+  flippedCard = null;
+  secondCardFlipped = null;
+  
 
 }
 
@@ -62,10 +69,9 @@ function cardsOnScreen(cards) {
 }
 
 // Toggling back and front classes on card
-let innerCards = document.querySelectorAll(".game-card");
+// let innerCards = document.querySelectorAll(".game-card");
 
-var flippedCard = null;
-var secondCardFlipped = null;
+
 
 
 function flipCard(card) {
@@ -99,6 +105,7 @@ function flipCard(card) {
 }
 
 const clickThisCard = function() {
+  let innerCards = document.querySelectorAll(".game-card");
   innerCards.forEach(function (currentCard){
     currentCard.addEventListener('click', function(event) {
       flipCard(event.currentTarget);
@@ -111,15 +118,17 @@ clickThisCard();
 
 // Button to start a new game
 
+
 const newGame = document.querySelector(".new-game");
 newGame.addEventListener('click', function() {
-  location.reload();
+  playGame();
+  clickThisCard();
 });
 
 // const newGame = document.querySelector(".new-game");
 // newGame.addEventListener('click', function() {
-//   playGame();
-//   clickThisCard();
+//   location.reload();
 // });
 
-
+//adding timer to game(i hava to add it when the first card is clicked)
+//https://www.dummies.com/programming/programming-games/how-to-add-timing-to-your-html5-game/
