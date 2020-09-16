@@ -1,6 +1,9 @@
 var flippedCard = null;
 var secondCardFlipped = null;
 
+//for elapsed time
+
+
 
 //create cards for game
 function createCards(x) {

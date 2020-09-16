@@ -1,9 +1,31 @@
-#container {
+/* change the box model for all elements on the web page to the new box model. */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
   display: flex;
-  width: 48%;
+  /* background: #060AB2; */
+}
+
+/* Button new game */
+
+.new-game {
+  width: 160px; 
+  height: 120px;
+  margin: 5px;
+}
+
+#container {
+  width: 640px;
+  height: 640px;
   margin: auto;
+  display: flex;
   flex-wrap: wrap;
-  
 }
 
 h1 {
@@ -12,11 +34,12 @@ h1 {
 }
 
 .game-card {
-    width: 104px;
-    height: 160px;
-    margin: 100px auto;
-    perspective: 1000px;
-    
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  /* box-shadow: 1px 1px 1px rgba(0,0,0,.3); */
+  perspective: 1000px;
 }
 
 /*Necessary on positioning sides*/
@@ -30,6 +53,7 @@ h1 {
     transform-style: preserve-3d;
 }
 
+
 /* Flip on mouse click */
 .game-card.active .game-card-inner {
     transform: rotateY(180deg);
@@ -40,6 +64,8 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
+    padding: 20px;
+    border-radius: 5px;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
   }
